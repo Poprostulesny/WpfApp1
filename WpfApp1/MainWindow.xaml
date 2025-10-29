@@ -6,11 +6,11 @@
     <Grid Margin="14">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
-        <!-- Top buttons -->
+        
         <StackPanel Orientation="Horizontal">
             <Button x:Name="SetCodeBtn" Content="Choose File" Padding="12,6" Margin="0,0,8,0" Click="SetCodeBtn_Click"/>
             <!-- <Button x:Name="EditCodeBtn" Content="Edit Code" Padding="12,6" Margin="0,0,8,0" Click="EditCodeBtn_Click"/> -->
@@ -18,20 +18,13 @@
                     Click="BuildPromptBtn_Click"/>
         </StackPanel>
 
-        <!-- Editors -->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- <GroupBox Header="Baseline (original code)" Grid.Column="0" Margin="0,10,6,0"> -->
-            <!--     <Grid> -->
-            <!--         <TextBox x:Name="BaselineText" -->
-            <!--                  TextWrapping="NoWrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" -->
-            <!--                  FontFamily="Consolas" FontSize="14" /> -->
-            <!--     </Grid> -->
-            <!-- </GroupBox> -->
+        
 
             <GroupBox Header="Current Code" Grid.Column="0" Margin="6,10,0,1">
                 <Grid>
@@ -42,7 +35,7 @@
             </GroupBox>
         </Grid>
 
-        <!-- Prompt output -->
+        
         <GroupBox Grid.Row="2" Header="Prompt (read-only)" Margin="0,10,0,0">
             <DockPanel>
                 <Button Content="Copy" DockPanel.Dock="Right" Margin="8" Padding="12,6" Click="CopyPrompt_Click"/>

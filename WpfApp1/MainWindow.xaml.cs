@@ -12,13 +12,13 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        // BaselineText.Text = _baseline;
+     
         CurrentText.Text  = _current;
     }
 
     private void SetCodeBtn_Click(object sender, RoutedEventArgs e)
     {
-        // Simple “modal”: let user paste baseline via a file open or just leave as-is.
+  
         var dlg = new OpenFileDialog
         {
             Title = "Choose a file to use as Original Code (optional)",
@@ -28,9 +28,7 @@ public partial class MainWindow : Window
         if (dlg.ShowDialog(this) == true)
         {
             _baseline = File.ReadAllText(dlg.FileName);
-            // BaselineText.Text = _baseline;
-
-            // If current is empty, mirror baseline initially
+ 
             if (string.IsNullOrWhiteSpace(_current))
             {
                 _current = _baseline;
@@ -41,27 +39,19 @@ public partial class MainWindow : Window
        
     }
 
-    // private void EditCodeBtn_Click(object sender, RoutedEventArgs e)
-    // {
-    //     // Editing is just the right-side box; sync fields now in case the user typed on the left.
-    //     // _baseline = BaselineText.Text;
-    //     _current  = CurrentText.Text;
-    //     CurrentText.Focus();
-    // }
+
 
     private void BuildPromptBtn_Click(object sender, RoutedEventArgs e)
     {
         // _baseline = BaselineText.Text;
         _current  = CurrentText.Text;
-
+        
         var diff = DiffUtils.MakeUnifiedDiff("file.txt", _baseline, _current, context: 3);
         var prompt = DiffUtils.BuildPrompt(diffText: diff, initCode: _current, focus: "readability, performance");
-
+        _baseline = _current;
         PromptText.Text = prompt;
 
-        // Optional: reset like your React flow did
-        // _baseline = string.Empty; _current = string.Empty;
-        // BaselineText.Text = ""; CurrentText.Text = "";
+        
     }
 
     private void CopyPrompt_Click(object sender, RoutedEventArgs e)
