@@ -33,7 +33,7 @@
             <!--     </Grid> -->
             <!-- </GroupBox> -->
 
-            <GroupBox Header="Current Code (editable)" Grid.Column="0" Margin="6,10,0,1">
+            <GroupBox Header="Current Code" Grid.Column="0" Margin="6,10,0,1">
                 <Grid>
                     <TextBox x:Name="CurrentText"
                              TextWrapping="NoWrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
